@@ -10,6 +10,7 @@ namespace GameDevGame_Maze
         private SpriteBatch _spriteBatch;
 
         private Texture2D backgroundTexture;
+        private Texture2D texture;
 
         public Game1()
         {
@@ -32,6 +33,7 @@ namespace GameDevGame_Maze
             // TODO: use this.Content to load your game content here
 
             backgroundTexture = Content.Load<Texture2D>("floor");
+            texture = Content.Load<Texture2D>("HeroWalk");
         }
 
         protected override void Update(GameTime gameTime)
@@ -49,6 +51,7 @@ namespace GameDevGame_Maze
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 480), Color.White);
+            _spriteBatch.Draw(texture, new Vector2(0, 0), Color.White);
             _spriteBatch.End();
 
 

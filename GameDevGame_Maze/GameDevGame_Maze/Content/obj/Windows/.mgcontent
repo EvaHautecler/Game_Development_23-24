@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/floor.png</File>
+    <File>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/HeroWalk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
