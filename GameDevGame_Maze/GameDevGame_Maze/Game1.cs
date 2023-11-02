@@ -11,6 +11,8 @@ namespace GameDevGame_Maze
 
         private Texture2D backgroundTexture;
         private Texture2D texture;
+        private Rectangle heroRectangle;
+        private int schuifOp_X = 0;
 
         public Game1()
         {
@@ -23,6 +25,7 @@ namespace GameDevGame_Maze
         {
             // TODO: Add your initialization logic here
 
+            heroRectangle = new Rectangle(schuifOp_X, 0, 96, 96);
             base.Initialize();
         }
 
@@ -51,8 +54,15 @@ namespace GameDevGame_Maze
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 480), Color.White);
-            _spriteBatch.Draw(texture, new Vector2(0, 0), Color.White);
+            _spriteBatch.Draw(texture, new Vector2(0, 0),heroRectangle, Color.White);
             _spriteBatch.End();
+
+            schuifOp_X += 96;
+            if (schuifOp_X > 576)
+            {
+                schuifOp_X = 0;
+            }
+            heroRectangle.X = schuifOp_X;
 
 
             // TODO: Add your drawing code here
