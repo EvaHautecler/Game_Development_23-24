@@ -10,9 +10,9 @@ namespace GameDevGame_Maze
         private SpriteBatch _spriteBatch;
 
         private Texture2D backgroundTexture;
-        private Texture2D texture;
-        private Rectangle heroRectangle;
-        private int schuifOp_X = 0;
+        private Texture2D textureHero;
+        Hero hero;
+        
 
         public Game1()
         {
@@ -25,8 +25,8 @@ namespace GameDevGame_Maze
         {
             // TODO: Add your initialization logic here
 
-            heroRectangle = new Rectangle(schuifOp_X, 0, 96, 96);
             base.Initialize();
+            hero = new Hero(textureHero);
         }
 
         protected override void LoadContent()
@@ -36,7 +36,7 @@ namespace GameDevGame_Maze
             // TODO: use this.Content to load your game content here
 
             backgroundTexture = Content.Load<Texture2D>("floor");
-            texture = Content.Load<Texture2D>("HeroWalk");
+            textureHero = Content.Load<Texture2D>("HeroWalk");
         }
 
         protected override void Update(GameTime gameTime)
@@ -45,7 +45,7 @@ namespace GameDevGame_Maze
                 Exit();
 
             // TODO: Add your update logic here
-
+            hero.Update();
             base.Update(gameTime);
         }
 
@@ -54,17 +54,10 @@ namespace GameDevGame_Maze
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 480), Color.White);
-            _spriteBatch.Draw(texture, new Vector2(0, 0),heroRectangle, Color.White);
+            hero.Draw(_spriteBatch);
             _spriteBatch.End();
 
-            schuifOp_X += 96;
-            if (schuifOp_X > 576)
-            {
-                schuifOp_X = 0;
-            }
-            heroRectangle.X = schuifOp_X;
-
-
+            
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
