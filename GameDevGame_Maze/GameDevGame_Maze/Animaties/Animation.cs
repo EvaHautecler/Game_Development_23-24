@@ -43,7 +43,7 @@ namespace GameDevGame_Maze.Animaties
         {
             CurrentFrame = frames[counter];
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-            int fps = 4;
+            int fps = 13;
 
             if (secondCounter >= 1d/fps)
             {
