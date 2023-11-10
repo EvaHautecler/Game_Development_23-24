@@ -26,7 +26,7 @@ namespace GameDevGame_Maze
 
         private void Move()
         {
-            position += speed;
+            /*position += speed;
             speed += accelaration;
             float maxSpeed = 10;
             speed = Limit(speed, maxSpeed);
@@ -49,7 +49,11 @@ namespace GameDevGame_Maze
             {
                 speed = new Vector2(speed.X, speed.Y < 0 ? 1 : -1);
                 speed.Y *= -1;
-            }
+            }*/
+
+            var direction = inputReader.ReadInput();
+            direction *= speed;
+            position += direction;
         }
 
         private Vector2 Limit(Vector2 v, float max)
@@ -79,11 +83,12 @@ namespace GameDevGame_Maze
 
         public void Update(GameTime gameTime)
         {
-            var direction = inputReader.ReadInput();
+            /*var direction = inputReader.ReadInput();
             direction *= speed;
-            position += direction;
+            position += direction;*/
+            Move();
             animation.Update(gameTime);
-            //Move();
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
