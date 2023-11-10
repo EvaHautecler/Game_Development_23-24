@@ -2,6 +2,7 @@
 using GameDevGame_Maze.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace GameDevGame_Maze
         private Vector2 position = new Vector2(0, 0);
         private Vector2 speed = new Vector2(1,1);
         private Vector2 accelaration = new Vector2(0.1f, 0.1f);
+        private IInputReader inputReader;
 
         Animation animation;
 
@@ -61,20 +63,27 @@ namespace GameDevGame_Maze
             return v;
         }
 
-        public Hero(Texture2D texture)
+        public Hero(Texture2D texture, IInputReader inputReader)
         {
             textureHero = texture;
+            this.inputReader = inputReader;
             animation = new Animation();
+
+            position = new Vector2(1, 1);
+            speed = new Vector2(2, 2);
+            accelaration = new Vector2(0.1f, 0.1f);
             animation.GetFramesFromTextureProperties(texture.Width, texture.Height, 7, 1);
-            
+
         }
 
 
         public void Update(GameTime gameTime)
         {
-            
+            var direction = inputReader.ReadInput();
+            direction *= speed;
+            position += direction;
             animation.Update(gameTime);
-            Move();
+            //Move();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

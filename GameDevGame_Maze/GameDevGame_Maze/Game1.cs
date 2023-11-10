@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameDevGame_Maze.Input;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -31,7 +32,7 @@ namespace GameDevGame_Maze
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            hero = new Hero(textureHero);
+            hero = new Hero(textureHero, new keyboardReader());
         }
 
         protected override void LoadContent()
