@@ -12,6 +12,8 @@ namespace GameDevGame_Maze
         private Texture2D backgroundTexture;
         private Texture2D textureHero;
         Hero hero;
+
+        
         
 
         public Game1()
@@ -45,7 +47,7 @@ namespace GameDevGame_Maze
                 Exit();
 
             // TODO: Add your update logic here
-            hero.Update();
+            hero.Update(gameTime);
             base.Update(gameTime);
         }
 

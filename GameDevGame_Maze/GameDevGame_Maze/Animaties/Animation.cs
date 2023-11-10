@@ -13,6 +13,8 @@ namespace GameDevGame_Maze.Animaties
         private List<AnimationFrame> frames;
         private int counter;
 
+        private double secondCounter = 0;
+
         public Animation()
         {
             frames = new List<AnimationFrame>();
@@ -37,10 +39,17 @@ namespace GameDevGame_Maze.Animaties
                 }
             }
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             CurrentFrame = frames[counter];
-            counter++;
+            secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+            int fps = 4;
+
+            if (secondCounter >= 1d/fps)
+            {
+                counter++;
+                secondCounter = 0;
+            }
             if (counter >= frames.Count)
             {
                 counter = 0;
