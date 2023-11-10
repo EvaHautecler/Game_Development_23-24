@@ -15,23 +15,23 @@ namespace GameDevGame_Maze
         private Texture2D textureHero;
         private Rectangle heroRectangle;
         private int schuifOp_X = 0;
+        private Vector2 position = new Vector2(0, 0);
+        private Vector2 speed = new Vector2(1,1);
 
         Animation animation;
+
+
+        private void Move()
+        {
+            position += speed;
+        }
 
         public Hero(Texture2D texture)
         {
             textureHero = texture;
-            //heroRectangle = new Rectangle(schuifOp_X, 0, 96, 96);
             animation = new Animation();
             animation.GetFramesFromTextureProperties(texture.Width, texture.Height, 7, 1);
-            /*animation.AddFrame(new AnimationFrame(new Rectangle(0, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(96, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(192, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(288, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(384, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(480, 0, 96, 96)));
-            animation.AddFrame(new AnimationFrame(new Rectangle(576, 0, 96, 96)));*/
-
+            
         }
 
 
@@ -39,10 +39,11 @@ namespace GameDevGame_Maze
         {
             
             animation.Update(gameTime);
+            Move();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(textureHero, new Vector2(0, 0), animation.CurrentFrame.SourceRectangle, Color.White);
+            spriteBatch.Draw(textureHero, position, animation.CurrentFrame.SourceRectangle, Color.White);
         }
     }
     
