@@ -17,6 +17,7 @@ namespace GameDevGame_Maze
         private int schuifOp_X = 0;
         private Vector2 position = new Vector2(0, 0);
         private Vector2 speed = new Vector2(1,1);
+        private Vector2 accelaration = new Vector2(0.1f, 0.1f);
 
         Animation animation;
 
@@ -24,14 +25,40 @@ namespace GameDevGame_Maze
         private void Move()
         {
             position += speed;
+            speed += accelaration;
+            float maxSpeed = 10;
+            speed = Limit(speed, maxSpeed);
             if (position.X > 1280 - 96 || position.X < 0)
             {
                 speed.X *= -1;
+                accelaration.X *= -1;
             }
             if (position.Y > 720 - 96 || position.Y < 0)
             {
                 speed.Y *= -1;
+                accelaration.Y *= -1;
             }
+            if (position.X + speed.X > 1280 - 96 || position.X + speed.X < 0)
+            {
+                speed = new Vector2(speed.X < 0 ? 1 : -1, speed.Y);
+                accelaration.X *= -1;
+            }
+            if (position.Y + speed.Y > 720 - 96 || position.Y + speed.Y < 0)
+            {
+                speed = new Vector2(speed.X, speed.Y < 0 ? 1 : -1);
+                speed.Y *= -1;
+            }
+        }
+
+        private Vector2 Limit(Vector2 v, float max)
+        {
+            if (v.Length() > max)
+            {
+                var ratio = max / v.Length();
+                v.X *= ratio;
+                v.Y *= ratio;
+            }
+            return v;
         }
 
         public Hero(Texture2D texture)
