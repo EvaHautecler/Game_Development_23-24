@@ -25,6 +25,7 @@ namespace GameDevGame_Maze
             IsMouseVisible = true;
         }
 
+        
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -57,7 +58,7 @@ namespace GameDevGame_Maze
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 480), Color.White);
+            _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1280, 720), Color.White);
             hero.Draw(_spriteBatch);
             _spriteBatch.End();
 

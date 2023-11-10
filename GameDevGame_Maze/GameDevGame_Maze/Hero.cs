@@ -24,6 +24,14 @@ namespace GameDevGame_Maze
         private void Move()
         {
             position += speed;
+            if (position.X > 1280 - 96 || position.X < 0)
+            {
+                speed.X *= -1;
+            }
+            if (position.Y > 720 - 96 || position.Y < 0)
+            {
+                speed.Y *= -1;
+            }
         }
 
         public Hero(Texture2D texture)
