@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SharpDX.Direct2D1.Effects;
 
 namespace GameDevGame_Maze
 {
@@ -12,6 +13,8 @@ namespace GameDevGame_Maze
 
         private Texture2D backgroundTexture;
         private Texture2D textureHero;
+
+        
         Hero hero;
 
         
@@ -37,6 +40,7 @@ namespace GameDevGame_Maze
 
         protected override void LoadContent()
         {
+            
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
