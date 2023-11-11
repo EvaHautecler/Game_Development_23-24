@@ -18,8 +18,6 @@ namespace GameDevGame_Maze
         Hero hero;
 
         
-        
-
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);

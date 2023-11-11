@@ -26,7 +26,25 @@ namespace GameDevGame_Maze
 
         private void Move()
         {
-            
+
+            //position += speed;
+            if (position.X > 1280 -96 )
+            {
+                position.X = 1280 - 96;
+            }
+            if (position.X < -15)
+            {
+                position.X = -15;
+            }
+            if (position.Y > 720 -96 )
+            {
+                position.Y = 720 - 96;
+            }
+            if (position.Y <-10)
+            {
+                position.Y = -10;
+            }
+
             var direction = inputReader.ReadInput();
             direction *= speed;
             position += direction;
