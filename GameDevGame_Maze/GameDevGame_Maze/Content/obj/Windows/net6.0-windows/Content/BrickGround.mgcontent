@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/HeroWalk.png</SourceFile>
-  <SourceTime>2023-10-29T16:34:53.1667771+01:00</SourceTime>
-  <DestFile>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/bin/Windows/HeroWalk.xnb</DestFile>
-  <DestTime>2023-11-13T18:28:12.6796715+01:00</DestTime>
+  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/BrickGround.png</SourceFile>
+  <SourceTime>2023-11-13T17:55:22.8220179+01:00</SourceTime>
+  <DestFile>C:/Users/EvaHa/GameDevTestRepository/GameDevGame_Maze/GameDevGame_Maze/Content/bin/Windows/Content/BrickGround.xnb</DestFile>
+  <DestTime>2023-11-13T17:58:07.239966+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

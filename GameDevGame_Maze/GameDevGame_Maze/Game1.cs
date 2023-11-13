@@ -43,7 +43,7 @@ namespace GameDevGame_Maze
 
             // TODO: use this.Content to load your game content here
 
-            backgroundTexture = Content.Load<Texture2D>("floor");
+            backgroundTexture = Content.Load<Texture2D>("BrickGround");
             textureHero = Content.Load<Texture2D>("HeroWalk");
         }
 

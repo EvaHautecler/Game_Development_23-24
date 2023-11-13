@@ -37,3 +37,4 @@ C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug\net6.0-windows\GameDevGame_Maze.pdb
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug\net6.0-windows\GameDevGame_Maze.genruntimeconfig.cache
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug\net6.0-windows\ref\GameDevGame_Maze.dll
+C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\BrickGround.xnb

@@ -64,7 +64,7 @@ namespace GameDevGame_Maze
 
         }
 
-        private Vector2 Limit(Vector2 v, float max)
+        /*private Vector2 Limit(Vector2 v, float max)
         {
             if (v.Length() > max)
             {
@@ -73,7 +73,7 @@ namespace GameDevGame_Maze
                 v.Y *= ratio;
             }
             return v;
-        }
+        }*/
 
 
         public Hero(Texture2D texture, IInputReader inputReader)
