@@ -53,12 +53,12 @@ namespace GameDevGame_Maze
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                position.X -= 2;
+                position.X -= 1;
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                position.X += 2;
+                position.X += 1;
                 spriteEffects = SpriteEffects.None;
             }
 
@@ -102,7 +102,7 @@ namespace GameDevGame_Maze
         {
 
             //spriteBatch.Draw(textureHero, position, animation.CurrentFrame.SourceRectangle, Color.White);
-            spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int) position.Y, 200,200), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
+            spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int) position.Y, 140,140), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
 
         }
 

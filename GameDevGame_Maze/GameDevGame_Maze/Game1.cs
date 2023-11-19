@@ -16,33 +16,11 @@ namespace GameDevGame_Maze
         private Texture2D textureHero;
 
         private Texture2D blokTexture;
-        private List<Texture2D> blocks;
-
+        
         Hero hero;
+        Maze maze;
 
-        int[,] gameboard = new int[,]
-        {
-            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
-            {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,1 },
-            {1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1 },
-            {1,0,1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,0,1 },
-            {1,0,1,0,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,0,1 },
-            {1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1 },
-            {1,0,1,1,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1 },
-            {1,0,0,0,0,0,1,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,1 },
-            {1,0,1,1,1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,0,0,1 },
-            {1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1 },
-            {1,0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,0,1 },
-            {1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,1 },
-            {1,0,1,0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,0,0,1 },
-            {1,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1 },
-            {1,0,1,0,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,1 },
-            {1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,0,0,0,1 },
-            {0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,1,1,0,1,0,1,0,1,1,0,0 },
-            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }
-        };
-
-
+        
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -59,7 +37,7 @@ namespace GameDevGame_Maze
 
             base.Initialize();
             hero = new Hero(textureHero, new keyboardReader());
-            blocks = new List<Texture2D>();
+            maze = new Maze(blokTexture, new List<Texture2D>());
         }
 
         protected override void LoadContent()
@@ -90,18 +68,8 @@ namespace GameDevGame_Maze
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 3840, 2160), Color.White);
             hero.Draw(_spriteBatch);
+            maze.Draw(_spriteBatch);
 
-            for (int i = 0; i < gameboard.GetLength(1); i++)
-            {
-                for (int j = 0; j < gameboard.GetLength(0); j++)
-                {
-                    if (gameboard[j,i] == 1)
-                    {
-                        blocks.Add(blokTexture);
-                        _spriteBatch.Draw(blokTexture, new Rectangle(i * 120, j * 115, 115, 115), Color.White);
-                    }
-                }
-            }
             _spriteBatch.End();
 
             
