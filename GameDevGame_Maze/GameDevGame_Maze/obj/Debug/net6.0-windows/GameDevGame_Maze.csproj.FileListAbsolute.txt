@@ -1,4 +1,3 @@
-C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\floor.xnb
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\HeroWalk.xnb
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\GameDevGame_Maze.exe
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\GameDevGame_Maze.deps.json
@@ -38,3 +37,7 @@ C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug\net6.0-windows\GameDevGame_Maze.genruntimeconfig.cache
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\obj\Debug\net6.0-windows\ref\GameDevGame_Maze.dll
 C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\BrickGround.xnb
+C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\GhostWalk.xnb
+C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\WerewolfWalk.xnb
+C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\ZombieWalk.xnb
+C:\Users\EvaHa\GameDevTestRepository\GameDevGame_Maze\GameDevGame_Maze\bin\Debug\net6.0-windows\Content\TopDownGroundStoneTilesTileset.xnb

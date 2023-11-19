@@ -30,17 +30,17 @@ namespace GameDevGame_Maze
         {
 
             //position += speed;
-            if (position.X > 1280 - 96)
+            if (position.X > 3860 - 96)
             {
-                position.X = 1280 - 96;
+                position.X = 3860 - 96;
             }
             if (position.X < -15)
             {
                 position.X = -15;
             }
-            if (position.Y > 720 - 96)
+            if (position.Y > 2160 - 96)
             {
-                position.Y = 720 - 96;
+                position.Y = 2160 - 96;
             }
             if (position.Y < -10)
             {
@@ -102,7 +102,7 @@ namespace GameDevGame_Maze
         {
 
             //spriteBatch.Draw(textureHero, position, animation.CurrentFrame.SourceRectangle, Color.White);
-            spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int) position.Y, 96,96), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
+            spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int) position.Y, 200,200), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
 
         }
 
