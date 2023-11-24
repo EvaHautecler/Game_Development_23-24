@@ -14,18 +14,29 @@ namespace GameDevGame_Maze
     public class Hero : IGameObject
     {
         private Texture2D textureHero;
-        private Rectangle heroRectangle;
-        private int schuifOp_X = 0;
+        private Rectangle heroRectangle = new Rectangle();
         private Vector2 position = new Vector2(0, 0);
         private Vector2 speed = new Vector2(1, 1);
         private Vector2 accelaration = new Vector2(0.1f, 0.1f);
         private IInputReader inputReader;
-
+        private Vector2 direction;
+        
+        
+        
         Animation animation;
 
-        SpriteEffects spriteEffects = SpriteEffects.FlipHorizontally;
+        SpriteEffects spriteEffects = SpriteEffects.None;
 
+        //public Vector2 FuturePosition { get { return position + speed; } set { } }
+        public Vector2 FuturePosition(Vector2 position)
+        {
+            direction *= speed;
+            position += direction;
+            return position;
+        }
 
+        public Rectangle HeroRectangle { get { return heroRectangle; } set { } }
+        public Vector2 FuturePositionHero { get { return new Vector2(0, 0); } set { } }
         private void Move()
         {
 
@@ -47,9 +58,11 @@ namespace GameDevGame_Maze
                 position.Y = -10;
             }
 
-            var direction = inputReader.ReadInput();
-            direction *= speed;
-            position += direction;
+
+            direction = inputReader.ReadInput();
+            FuturePosition(position);
+            //direction *= speed;
+            //position += direction;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
@@ -64,16 +77,7 @@ namespace GameDevGame_Maze
 
         }
 
-        /*private Vector2 Limit(Vector2 v, float max)
-        {
-            if (v.Length() > max)
-            {
-                var ratio = max / v.Length();
-                v.X *= ratio;
-                v.Y *= ratio;
-            }
-            return v;
-        }*/
+        
 
 
         public Hero(Texture2D texture, IInputReader inputReader)
@@ -82,11 +86,11 @@ namespace GameDevGame_Maze
             this.inputReader = inputReader;
             animation = new Animation();
 
-            position = new Vector2(1, 1);
+            position = new Vector2(1, 1800);
             speed = new Vector2(2, 2);
             accelaration = new Vector2(0.1f, 0.1f);
+            heroRectangle = new Rectangle((int)position.X, (int)position.Y, 140, 140);
             animation.GetFramesFromTextureProperties(texture.Width, texture.Height, 7, 1);
-
         }
 
 
@@ -102,8 +106,8 @@ namespace GameDevGame_Maze
         {
 
             //spriteBatch.Draw(textureHero, position, animation.CurrentFrame.SourceRectangle, Color.White);
-            spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int) position.Y, 140,140), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
-
+            //spriteBatch.Draw(textureHero, new Rectangle((int)position.X, (int)position.Y, 140, 140), animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
+            spriteBatch.Draw(textureHero, heroRectangle, animation.CurrentFrame.SourceRectangle, Color.White, rotation, new Vector2(1, 1), spriteEffects, 0f);
         }
 
     }

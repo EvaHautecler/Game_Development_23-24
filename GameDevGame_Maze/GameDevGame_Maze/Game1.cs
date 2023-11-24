@@ -1,4 +1,5 @@
-﻿using GameDevGame_Maze.Input;
+﻿//using GameDevGame_Maze.Collisions;
+using GameDevGame_Maze.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,9 +17,11 @@ namespace GameDevGame_Maze
         private Texture2D textureHero;
 
         private Texture2D blokTexture;
+        //private bool heroRectangleMovesLeft;
         
         Hero hero;
         Maze maze;
+        
 
         
         public Game1()
@@ -58,9 +61,29 @@ namespace GameDevGame_Maze
                 Exit();
 
             // TODO: Add your update logic here
+            /*if (Contains(hero.FuturePosition, maze.PositionMazeBlock))
+            {
+                hero.FuturePosition = new Vector2(0, 0);
+            }*/
+
+            /*if (Contains(hero.FuturePositionHero, maze.PositionMazeBlock))
+            {
+                hero.FuturePositionHero = new Vector2(0, 0);
+            }*/
+            //maze.Update(gameTime);
+
             hero.Update(gameTime);
             base.Update(gameTime);
         }
+        
+        /*public bool Contains(Vector2 positionHero, Vector2 positionMaze)
+        {
+            if (positionHero.X < positionMaze.X) return false;
+            if (positionHero.X > (positionMaze.X + blokTexture.Width)) return false;
+            if (positionHero.Y < positionMaze.Y) return false;
+            if (positionHero.Y > (positionMaze.X + blokTexture.Height)) return false;
+            return true;
+        }*/
 
         protected override void Draw(GameTime gameTime)
         {
@@ -69,7 +92,7 @@ namespace GameDevGame_Maze
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 3840, 2160), Color.White);
             hero.Draw(_spriteBatch);
             maze.Draw(_spriteBatch);
-
+            
             _spriteBatch.End();
 
             
