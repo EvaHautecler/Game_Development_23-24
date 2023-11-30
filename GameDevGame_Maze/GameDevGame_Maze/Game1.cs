@@ -1,4 +1,5 @@
 ﻿//using GameDevGame_Maze.Collisions;
+using GameDevGame_Maze.Characters;
 using GameDevGame_Maze.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

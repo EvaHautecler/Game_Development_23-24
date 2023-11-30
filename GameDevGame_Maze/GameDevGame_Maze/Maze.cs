@@ -16,7 +16,7 @@ namespace GameDevGame_Maze
         private Texture2D blokTexture;
         private List<Texture2D> blocks;
         private Rectangle mazeRectangle = new Rectangle();
-        private Vector2 position;
+        //private Vector2 position;
 
         int[,] gameboard = new int[,]
         {
@@ -40,7 +40,7 @@ namespace GameDevGame_Maze
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }
         };
 
-        public Vector2 PositionMazeBlock { get { return position; } }
+        //public Vector2 PositionMazeBlock { get { return position; } }
         
         
         public Maze(Texture2D texture, List<Texture2D> blocks)
@@ -48,24 +48,32 @@ namespace GameDevGame_Maze
             blokTexture = texture;
             this.blocks = blocks;
         }
-        Hero hero;
-        public void checkCollision(List<Texture2D> blocks)
+
+
+        /*Hero hero;
+        public void checkCollision(List<Maze> blocks)
         {
-            foreach (Texture2D texture in blocks)
+            List<Maze> collidedBlocks = new List<Maze>();
+            foreach (Maze texture2 in blocks)
             {
-                if (mazeRectangle.Intersects(hero.HeroRectangle))
+                if (texture2 != null && texture2.mazeRectangle.Intersects(hero.HeroRectangle))
                 {
-                    hero.FuturePosition(hero.FuturePositionHero);
+                    collidedBlocks.Add(texture2);
                 }
             }
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            checkCollision(blocks);
-        }
+            
+            foreach (Maze texture in blocks)
+            {
+                Rectangle overlap = Rectangle.Intersect(hero.HeroRectangle, texture.mazeRectangle);
+                
+            }
+            
+        }*/
+        
+        
         public void Draw(SpriteBatch spriteBatch)
         {
+            //To go over every element in the 2d array and draw the stones where the element equals 1
             for (int i = 0; i < gameboard.GetLength(1); i++)
             {
                 for (int j = 0; j < gameboard.GetLength(0); j++)

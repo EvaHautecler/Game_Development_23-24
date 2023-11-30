@@ -1,5 +1,6 @@
 ﻿using GameDevGame_Maze.Interfaces;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,20 @@ namespace GameDevGame_Maze.Input
 {
     public class keyboardReader : IInputReader
     {
+        public SpriteEffects spriteEffects()
+        {
+            SpriteEffects effect = SpriteEffects.None;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                effect = SpriteEffects.FlipHorizontally;
+            }
+            return effect;
+        }
         public Vector2 ReadInput()
         {
             KeyboardState state = Keyboard.GetState();
             Vector2 direction = Vector2.Zero;
+
             if (state.IsKeyDown(Keys.Left))
             {
                 direction.X -= 1;
