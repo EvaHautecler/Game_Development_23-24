@@ -34,7 +34,7 @@ namespace Game_Development_Space_Shooter.Input
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right) && Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                angle += MathHelper.ToRadians(315f);
+                angle -= MathHelper.ToRadians(315f);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Left) && Keyboard.GetState().IsKeyDown(Keys.Down))
             {

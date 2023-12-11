@@ -12,7 +12,7 @@ namespace Game_Development_Space_Shooter
         private SpriteBatch _spriteBatch;
         private Texture2D backgroundTexture;
         private Texture2D spaceshipTexture;
-        //private Texture2D laserTexture;
+        private Texture2D laserTexture;
         private SpaceshipHero spaceshipHero;
         private KeyboardReader keyboardReader;
 
@@ -31,7 +31,7 @@ namespace Game_Development_Space_Shooter
 
             base.Initialize();
             keyboardReader = new KeyboardReader();
-            spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader);
+            spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader, laserTexture);
         }
 
         protected override void LoadContent()
@@ -39,6 +39,7 @@ namespace Game_Development_Space_Shooter
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             backgroundTexture = Content.Load<Texture2D>("Background");
             spaceshipTexture = Content.Load<Texture2D>("Move1");
+            laserTexture = Content.Load<Texture2D>("Charge");
             // TODO: use this.Content to load your game content here
         }
 
