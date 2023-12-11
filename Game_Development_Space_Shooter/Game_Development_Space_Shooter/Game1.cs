@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game_Development_Space_Shooter.Characters;
+using Game_Development_Space_Shooter.Input;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,7 +12,9 @@ namespace Game_Development_Space_Shooter
         private SpriteBatch _spriteBatch;
         private Texture2D backgroundTexture;
         private Texture2D spaceshipTexture;
-        private Texture2D laserTexture;
+        //private Texture2D laserTexture;
+        private SpaceshipHero spaceshipHero;
+        private KeyboardReader keyboardReader;
 
         public Game1()
         {
@@ -26,6 +30,8 @@ namespace Game_Development_Space_Shooter
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            keyboardReader = new KeyboardReader();
+            spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader);
         }
 
         protected override void LoadContent()
@@ -42,7 +48,7 @@ namespace Game_Development_Space_Shooter
                 Exit();
 
             // TODO: Add your update logic here
-
+            spaceshipHero.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -51,7 +57,8 @@ namespace Game_Development_Space_Shooter
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
-            _spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
+            spaceshipHero.Draw(_spriteBatch);
+            //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 

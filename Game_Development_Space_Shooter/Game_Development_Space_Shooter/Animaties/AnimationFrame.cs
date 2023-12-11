@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Game_Development_Space_Shooter.Animaties
 {
-    internal class AnimationFrame
+    public class AnimationFrame
     {
+        public Rectangle SourceRectangle { get; set; }
+        public AnimationFrame(Rectangle sourceRectangle)
+        {
+            SourceRectangle = sourceRectangle;
+        }
     }
 }
