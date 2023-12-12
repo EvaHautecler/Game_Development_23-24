@@ -38,3 +38,4 @@ C:\Users\EvaHa\GameDevTestRepository\Game_Development_Space_Shooter\Game_Develop
 C:\Users\EvaHa\GameDevTestRepository\Game_Development_Space_Shooter\Game_Development_Space_Shooter\obj\Debug\net6.0-windows\Game_Development_Space_Shooter.genruntimeconfig.cache
 C:\Users\EvaHa\GameDevTestRepository\Game_Development_Space_Shooter\Game_Development_Space_Shooter\obj\Debug\net6.0-windows\ref\Game_Development_Space_Shooter.dll
 C:\Users\EvaHa\GameDevTestRepository\Game_Development_Space_Shooter\Game_Development_Space_Shooter\bin\Debug\net6.0-windows\Content\Charge.xnb
+C:\Users\EvaHa\GameDevTestRepository\Game_Development_Space_Shooter\Game_Development_Space_Shooter\bin\Debug\net6.0-windows\Content\enemySpaceship.xnb

@@ -13,6 +13,7 @@ namespace Game_Development_Space_Shooter
         private Texture2D backgroundTexture;
         private Texture2D spaceshipTexture;
         private Texture2D laserTexture;
+        private Texture2D enemySpaceship;
         private SpaceshipHero spaceshipHero;
         private KeyboardReader keyboardReader;
 
@@ -40,6 +41,7 @@ namespace Game_Development_Space_Shooter
             backgroundTexture = Content.Load<Texture2D>("Background");
             spaceshipTexture = Content.Load<Texture2D>("Move1");
             laserTexture = Content.Load<Texture2D>("Charge");
+            enemySpaceship = Content.Load<Texture2D>("enemySpaceship");
             // TODO: use this.Content to load your game content here
         }
 
@@ -59,6 +61,7 @@ namespace Game_Development_Space_Shooter
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
             spaceshipHero.Draw(_spriteBatch);
+            _spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
             //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
             _spriteBatch.End();
             // TODO: Add your drawing code here
