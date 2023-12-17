@@ -41,21 +41,21 @@ namespace Game_Development_Space_Shooter.Characters
             enemyRectangle.X += (int)(position.X * enemySpeed);
             enemyRectangle.Y += (int)(position.Y * enemySpeed);
 
-            if (enemyRectangle.X < -128)
+            if (enemyRectangle.X < -96)
             {
-                enemyRectangle.X = 1628;
+                enemyRectangle.X = 1596;
             }
-            if (enemyRectangle.X > 1628)
+            if (enemyRectangle.X > 1596)
             {
-                enemyRectangle.X = -128;
+                enemyRectangle.X = -96;
             }
-            if (enemyRectangle.Y < -128)
+            if (enemyRectangle.Y < -46)
             {
-                enemyRectangle.Y = 1078;
+                enemyRectangle.Y = 996;
             }
-            if (enemyRectangle.Y > 1078)
+            if (enemyRectangle.Y > 996)
             {
-                enemyRectangle.Y = -128;
+                enemyRectangle.Y = -46;
             }
             return enemyRectangle;
         }

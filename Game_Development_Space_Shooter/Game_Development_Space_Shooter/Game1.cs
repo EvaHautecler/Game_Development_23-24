@@ -37,7 +37,11 @@ namespace Game_Development_Space_Shooter
             keyboardReader = new KeyboardReader();
             spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader, laserTexture);
             enemySpaceshipManager = new EnemySpaceshipManager();
-            
+            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 70);
+            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 256);
+            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 442);
+            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 628);
+            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 814);
         }
 
         protected override void LoadContent()

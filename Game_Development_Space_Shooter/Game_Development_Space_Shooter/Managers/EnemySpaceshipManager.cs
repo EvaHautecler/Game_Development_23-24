@@ -23,8 +23,8 @@ namespace Game_Development_Space_Shooter.Managers
 
         public void AddRandomEnemy(Texture2D enemyTexture, int screenWidth, int y)
         {
-            int width = 128; //Width of the enemySpaceship
-            int height = 128; // height of the enemySpaceship
+            int width = 96; //Width of the enemySpaceship
+            int height = 46; // height of the enemySpaceship
             float enemySpeed = random.Next(3, 5);
             Rectangle randomEnemyRectangle;
             int x = random.Next(0, screenWidth - width);
