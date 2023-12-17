@@ -1,5 +1,6 @@
 ﻿using Game_Development_Space_Shooter.Characters;
 using Game_Development_Space_Shooter.Input;
+using Game_Development_Space_Shooter.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,6 +18,8 @@ namespace Game_Development_Space_Shooter
         private SpaceshipHero spaceshipHero;
         private KeyboardReader keyboardReader;
 
+        private EnemySpaceshipManager enemySpaceshipManager;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -33,6 +36,8 @@ namespace Game_Development_Space_Shooter
             base.Initialize();
             keyboardReader = new KeyboardReader();
             spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader, laserTexture);
+            enemySpaceshipManager = new EnemySpaceshipManager();
+            
         }
 
         protected override void LoadContent()
@@ -52,6 +57,7 @@ namespace Game_Development_Space_Shooter
 
             // TODO: Add your update logic here
             spaceshipHero.Update(gameTime);
+            enemySpaceshipManager.UpdateAllEnemies();
             base.Update(gameTime);
         }
 
@@ -61,7 +67,8 @@ namespace Game_Development_Space_Shooter
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
             spaceshipHero.Draw(_spriteBatch);
-            _spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
+            enemySpaceshipManager.DrawAllEnemies(_spriteBatch);
+            //_spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
             //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
             _spriteBatch.End();
             // TODO: Add your drawing code here
