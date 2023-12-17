@@ -14,11 +14,13 @@ namespace Game_Development_Space_Shooter
         private Texture2D backgroundTexture;
         private Texture2D spaceshipTexture;
         private Texture2D laserTexture;
-        private Texture2D enemySpaceship;
+        private Texture2D enemySpaceshipTexture;
+        private Texture2D astroidTexture;
         private SpaceshipHero spaceshipHero;
         private KeyboardReader keyboardReader;
 
-        private EnemySpaceshipManager enemySpaceshipManager;
+        private Manager enemySpaceship;
+        private Manager asteroid;
 
         public Game1()
         {
@@ -36,12 +38,23 @@ namespace Game_Development_Space_Shooter
             base.Initialize();
             keyboardReader = new KeyboardReader();
             spaceshipHero = new SpaceshipHero(spaceshipTexture, keyboardReader, laserTexture);
-            enemySpaceshipManager = new EnemySpaceshipManager();
-            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 70);
-            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 256);
-            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 442);
-            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 628);
-            enemySpaceshipManager.AddRandomEnemy(enemySpaceship, 1500, 814);
+            enemySpaceship = new Manager();
+            enemySpaceship.AddRandomEnemy(enemySpaceshipTexture, 1500, 70);
+            enemySpaceship.AddRandomEnemy(enemySpaceshipTexture, 1500, 256);
+            enemySpaceship.AddRandomEnemy(enemySpaceshipTexture, 1500, 442);
+            enemySpaceship.AddRandomEnemy(enemySpaceshipTexture, 1500, 628);
+            enemySpaceship.AddRandomEnemy(enemySpaceshipTexture, 1500, 814);
+            asteroid = new Manager();
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 0);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 0);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 178);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 178);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 364);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 364);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 550);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 550);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 736);
+            asteroid.AddRandomAsteroids(astroidTexture, 1500, 736);
         }
 
         protected override void LoadContent()
@@ -50,7 +63,8 @@ namespace Game_Development_Space_Shooter
             backgroundTexture = Content.Load<Texture2D>("Background");
             spaceshipTexture = Content.Load<Texture2D>("Move1");
             laserTexture = Content.Load<Texture2D>("Charge");
-            enemySpaceship = Content.Load<Texture2D>("enemySpaceship");
+            enemySpaceshipTexture = Content.Load<Texture2D>("enemySpaceship");
+            astroidTexture = Content.Load<Texture2D>("asteroid");
             // TODO: use this.Content to load your game content here
         }
 
@@ -61,7 +75,8 @@ namespace Game_Development_Space_Shooter
 
             // TODO: Add your update logic here
             spaceshipHero.Update(gameTime);
-            enemySpaceshipManager.UpdateAllEnemies();
+            enemySpaceship.UpdateAll(gameTime);
+            asteroid.UpdateAll(gameTime);
             base.Update(gameTime);
         }
 
@@ -71,7 +86,8 @@ namespace Game_Development_Space_Shooter
             _spriteBatch.Begin();
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
             spaceshipHero.Draw(_spriteBatch);
-            enemySpaceshipManager.DrawAllEnemies(_spriteBatch);
+            enemySpaceship.DrawAll(_spriteBatch);
+            asteroid.DrawAll(_spriteBatch);
             //_spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
             //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
             _spriteBatch.End();
