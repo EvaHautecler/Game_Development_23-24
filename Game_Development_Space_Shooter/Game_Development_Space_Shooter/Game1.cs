@@ -89,7 +89,7 @@ namespace Game_Development_Space_Shooter
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
             spaceshipHero.Draw(_spriteBatch);
             enemySpaceship.DrawAll(_spriteBatch);
-            //asteroid.DrawAll(_spriteBatch);
+            asteroid.DrawAll(_spriteBatch);
             _spriteBatch.Draw(starTexture, new Rectangle(200, 200, 290, 290), Color.White);
             //_spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
             //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
