@@ -5,10 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/asteroid.png</File>
-    <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/Background.png</File>
     <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/Charge.png</File>
     <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/enemySpaceship.png</File>
     <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/Move1.png</File>
+    <File>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/space.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

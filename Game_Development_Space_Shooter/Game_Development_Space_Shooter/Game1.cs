@@ -60,7 +60,7 @@ namespace Game_Development_Space_Shooter
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            backgroundTexture = Content.Load<Texture2D>("Background");
+            backgroundTexture = Content.Load<Texture2D>("space");
             spaceshipTexture = Content.Load<Texture2D>("Move1");
             laserTexture = Content.Load<Texture2D>("Charge");
             enemySpaceshipTexture = Content.Load<Texture2D>("enemySpaceship");
