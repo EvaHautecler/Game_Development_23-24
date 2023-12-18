@@ -16,6 +16,7 @@ namespace Game_Development_Space_Shooter
         private Texture2D laserTexture;
         private Texture2D enemySpaceshipTexture;
         private Texture2D astroidTexture;
+        private Texture2D starTexture;
         private SpaceshipHero spaceshipHero;
         private KeyboardReader keyboardReader;
 
@@ -65,7 +66,8 @@ namespace Game_Development_Space_Shooter
             laserTexture = Content.Load<Texture2D>("Charge");
             enemySpaceshipTexture = Content.Load<Texture2D>("enemySpaceship");
             astroidTexture = Content.Load<Texture2D>("asteroid");
-            // TODO: use this.Content to load your game content here
+            starTexture = Content.Load<Texture2D>("Star");
+            // TODO: us e this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -87,7 +89,8 @@ namespace Game_Development_Space_Shooter
             _spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 1500, 950), Color.White);
             spaceshipHero.Draw(_spriteBatch);
             enemySpaceship.DrawAll(_spriteBatch);
-            asteroid.DrawAll(_spriteBatch);
+            //asteroid.DrawAll(_spriteBatch);
+            _spriteBatch.Draw(starTexture, new Rectangle(200, 200, 290, 290), Color.White);
             //_spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
             //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
             _spriteBatch.End();

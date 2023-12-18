@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/asteroid.png</SourceFile>
-  <SourceTime>2023-12-17T15:19:46.0798411+01:00</SourceTime>
-  <DestFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/bin/Windows/asteroid.xnb</DestFile>
-  <DestTime>2023-12-18T14:20:30.569573+01:00</DestTime>
+  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/Star.png</SourceFile>
+  <SourceTime>2023-12-12T17:02:36.6501546+01:00</SourceTime>
+  <DestFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/bin/Windows/Star.xnb</DestFile>
+  <DestTime>2023-12-18T14:20:30.6805134+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
