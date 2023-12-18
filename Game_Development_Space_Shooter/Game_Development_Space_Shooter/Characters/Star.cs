@@ -11,9 +11,9 @@ namespace Game_Development_Space_Shooter.Characters
     public class Star
     {
         private Texture2D starTexture;
-        private Rectangle starRectangle;
-        private float starSpeed;
-        private Vector2 position;
+        private Rectangle starRectangle = new Rectangle(1210, -290, 200, 200);
+        private float starSpeed = 3.0f;
+        private Vector2 position = new Vector2(-2, 2);
         private float elapsedTime = 0.0f;
         private float interval = 20.0f;
         private bool isStarOnScreen = false;
@@ -23,7 +23,7 @@ namespace Game_Development_Space_Shooter.Characters
             this.starTexture = starTexture;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (isStarOnScreen && elapsedTime >= interval)
@@ -49,7 +49,7 @@ namespace Game_Development_Space_Shooter.Characters
 
         private void Move()
         {
-            starRectangle.X -= (int)(position.X * starSpeed);
+            starRectangle.X += (int)(position.X * starSpeed);
             starRectangle.Y += (int)(position.Y * starSpeed);
 
         }

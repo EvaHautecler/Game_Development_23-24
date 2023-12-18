@@ -22,6 +22,7 @@ namespace Game_Development_Space_Shooter
 
         private Manager enemySpaceship;
         private Manager asteroid;
+        private Star star;
 
         public Game1()
         {
@@ -56,6 +57,7 @@ namespace Game_Development_Space_Shooter
             asteroid.AddRandomAsteroids(astroidTexture, 1500, 550);
             asteroid.AddRandomAsteroids(astroidTexture, 1500, 736);
             asteroid.AddRandomAsteroids(astroidTexture, 1500, 736);
+            star = new Star(starTexture);
         }
 
         protected override void LoadContent()
@@ -79,6 +81,7 @@ namespace Game_Development_Space_Shooter
             spaceshipHero.Update(gameTime);
             enemySpaceship.UpdateAll(gameTime);
             asteroid.UpdateAll(gameTime);
+            star.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -90,9 +93,7 @@ namespace Game_Development_Space_Shooter
             spaceshipHero.Draw(_spriteBatch);
             enemySpaceship.DrawAll(_spriteBatch);
             asteroid.DrawAll(_spriteBatch);
-            _spriteBatch.Draw(starTexture, new Rectangle(200, 200, 290, 290), Color.White);
-            //_spriteBatch.Draw(enemySpaceship, new Rectangle(700, 800, 128, 128), Color.White);
-            //_spriteBatch.Draw(spaceshipTexture, new Rectangle(500, 270, 76, 48), Color.White);
+            star.Draw(_spriteBatch);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
