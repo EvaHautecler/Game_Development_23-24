@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/space.png</SourceFile>
-  <SourceTime>2023-12-18T14:07:38.1800443+01:00</SourceTime>
-  <DestFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/bin/Windows/Content/space.xnb</DestFile>
-  <DestTime>2023-12-18T14:10:40.7381226+01:00</DestTime>
+  <SourceFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/SpaceBackground.png</SourceFile>
+  <SourceTime>2023-12-19T18:38:29.7182769+01:00</SourceTime>
+  <DestFile>C:/Users/EvaHa/GameDevTestRepository/Game_Development_Space_Shooter/Game_Development_Space_Shooter/Content/bin/Windows/Content/SpaceBackground.xnb</DestFile>
+  <DestTime>2023-12-19T18:40:34.9743785+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
