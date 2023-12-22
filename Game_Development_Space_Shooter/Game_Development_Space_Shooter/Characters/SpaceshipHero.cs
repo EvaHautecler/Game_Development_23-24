@@ -1,5 +1,6 @@
 ﻿using Game_Development_Space_Shooter.Animaties;
 using Game_Development_Space_Shooter.Input;
+using Game_Development_Space_Shooter.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,7 +20,7 @@ namespace Game_Development_Space_Shooter.Characters
         private float airplaneSpeed = 2.0f;
         private KeyboardReader keyboardReader;
         private Animation animationSpaceship;
-        private List<SpaceshipLaser> lasers;
+        private Manager laserManager;
 
         public SpaceshipHero(Texture2D spaceshipTexture, KeyboardReader keyboardReader, Texture2D laserTexture)
         {
@@ -32,7 +33,7 @@ namespace Game_Development_Space_Shooter.Characters
             animationSpaceship = new Animation();
             animationSpaceship.GetFramesFromTextureProperties(spaceshipTexture.Width, spaceshipTexture.Height, 1, 1);
             keyboardReader = new KeyboardReader();
-            lasers = new List<SpaceshipLaser>();
+            laserManager = new Manager();
         }
 
         public void Update(GameTime gameTime)
@@ -40,19 +41,13 @@ namespace Game_Development_Space_Shooter.Characters
             spaceshipRectangle = keyboardReader.ReadInput(spaceshipRectangle, gameTime);
             animationSpaceship.Update(gameTime);
             Shoot();
-            foreach (SpaceshipLaser laser in lasers)
-            {
-                laser.Update();
-            }
+            laserManager.UpdateAll(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spaceshipTexture, spaceshipRectangle,animationSpaceship.CurrentFrame.SourceRectangle, Color.White, keyboardReader.AngleTotation(), new Vector2(spaceshipTexture.Width/2, spaceshipTexture.Height/2), SpriteEffects.None, 0f);
-            foreach (SpaceshipLaser laser in lasers)
-            {
-                laser.Draw(spriteBatch);
-            }
+            laserManager.DrawAll(spriteBatch);
         }
 
         private void Shoot()
@@ -63,14 +58,11 @@ namespace Game_Development_Space_Shooter.Characters
             startPosition -= new Vector2(spaceshipRectangle.Width / 2, spaceshipRectangle.Height / 2);
             if (Keyboard.GetState().IsKeyDown(Keys.Down) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Up) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Right) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Left) && Keyboard.GetState().IsKeyDown(Keys.Space))
             {
-                SpaceshipLaser bullet = new SpaceshipLaser(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 3, 3), direction);
-                lasers.Add(bullet);
+                laserManager.AddLasers(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 3, 3), direction);
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Space)) 
             {
-                SpaceshipLaser bullet = new SpaceshipLaser(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 10, 3), direction);
-                lasers.Add(bullet);
-
+                laserManager.AddLasers(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 10, 3), direction);
             }
             
 

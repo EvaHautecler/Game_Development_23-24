@@ -13,6 +13,7 @@ namespace Game_Development_Space_Shooter.Managers
     {
         private List<EnemySpaceship> allEnemies = new List<EnemySpaceship>();
         private List<Asteroid> allAsteroids = new List<Asteroid>();
+        private List<SpaceshipLaser> lasers = new List<SpaceshipLaser>();
         private Random random = new Random();
 
         //Adding enemies to the allEnemies list
@@ -27,6 +28,11 @@ namespace Game_Development_Space_Shooter.Managers
         {
             Asteroid newAsteroid = new Asteroid(asteroidTexture, asteroidRectangle);
             allAsteroids.Add(newAsteroid);
+        }
+        public void AddLasers(Texture2D bulletTexture, Rectangle bulletRectangle, Vector2 direction)
+        {
+            SpaceshipLaser bullet = new SpaceshipLaser(bulletTexture, bulletRectangle, direction);
+            lasers.Add(bullet);
         }
 
         public void AddRandomEnemy(Texture2D enemyTexture, int screenWidth, int y)
@@ -60,6 +66,10 @@ namespace Game_Development_Space_Shooter.Managers
             {
                 asteroid.Update(gameTime);
             }
+            foreach (SpaceshipLaser laser in lasers)
+            {
+                laser.Update();
+            }
         }
 
         
@@ -73,6 +83,10 @@ namespace Game_Development_Space_Shooter.Managers
             foreach (Asteroid asteroid in allAsteroids)
             {
                 asteroid.Draw(spriteBatch);
+            }
+            foreach (SpaceshipLaser laser in lasers)
+            {
+                laser.Draw(spriteBatch);
             }
         }
 
