@@ -39,10 +39,7 @@ namespace Game_Development_Space_Shooter.Characters
         {
             spaceshipRectangle = keyboardReader.ReadInput(spaceshipRectangle, gameTime);
             animationSpaceship.Update(gameTime);
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            {
-                Shoot();
-            }
+            Shoot();
             foreach (SpaceshipLaser laser in lasers)
             {
                 laser.Update();
@@ -58,35 +55,25 @@ namespace Game_Development_Space_Shooter.Characters
             }
         }
 
-        public void Shoot()
+        private void Shoot()
         {
             float angle = keyboardReader.AngleTotation();
-            Vector2 direction = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
-            direction.Y = -direction.Y;
-            Vector2 laserStartPosition = new Vector2(spaceshipRectangle.Center.X, spaceshipRectangle.Center.Y);
-            laserStartPosition -= new Vector2(spaceshipRectangle.Width / 2, spaceshipRectangle.Height / 2);
+            Vector2 direction = new Vector2((float)Math.Cos(angle), -(float)Math.Sin(angle));
+            Vector2 startPosition = new Vector2(spaceshipRectangle.Center.X, spaceshipRectangle.Center.Y);
+            startPosition -= new Vector2(spaceshipRectangle.Width / 2, spaceshipRectangle.Height / 2);
+            if (Keyboard.GetState().IsKeyDown(Keys.Down) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Up) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Right) && Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.Left) && Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                SpaceshipLaser bullet = new SpaceshipLaser(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 3, 3), direction);
+                lasers.Add(bullet);
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Space)) 
+            {
+                SpaceshipLaser bullet = new SpaceshipLaser(laserTexture, new Rectangle((int)startPosition.X, (int)startPosition.Y, 10, 3), direction);
+                lasers.Add(bullet);
 
-            Rectangle laserPosition = new Rectangle((int)laserStartPosition.X, (int)laserStartPosition.Y, 28, 3);
+            }
+            
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-            {
-                laserPosition = new Rectangle((int)laserStartPosition.X - 2, (int)laserStartPosition.Y, 3, 28);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-            {
-                laserPosition = new Rectangle((int)laserStartPosition.X - 2, (int)laserStartPosition.Y-29, 3, 28);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                laserPosition = new Rectangle((int)laserStartPosition.X - 29, (int)laserStartPosition.Y-2, 28, 3);
-            }
-            if ((Keyboard.GetState().IsKeyDown(Keys.Down) && Keyboard.GetState().IsKeyDown(Keys.Right)) || (Keyboard.GetState().IsKeyDown(Keys.Up) && Keyboard.GetState().IsKeyDown(Keys.Right)) || (Keyboard.GetState().IsKeyDown(Keys.Down) && Keyboard.GetState().IsKeyDown(Keys.Left)) || (Keyboard.GetState().IsKeyDown(Keys.Up) && Keyboard.GetState().IsKeyDown(Keys.Left)))
-            {
-                laserPosition = new Rectangle((int)laserStartPosition.X, (int)laserStartPosition.Y - 1, 3, 3);
-            }
-
-            SpaceshipLaser laser = new SpaceshipLaser(laserTexture, laserPosition, direction);
-            lasers.Add(laser);
         }
     }
 }
